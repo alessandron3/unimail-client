@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Unimail</title>
+    </head>
+    <body>
+
+        <h2>Bem vindo ao Unimail</h2>
+
+        <div>
+            <h4>Para logar digite seu email:</h4>
+            <form th:action="@{/login}" method="post">
+                <input type="email" name="email" required="" />
+                <input type="submit" value="ENTRAR" />
+            </form>
+            <div style="color: red" th:if="${errorMessage != null}" th:text="${errorMessage}"></div>
+            <div style="color: lightseagreen" th:if="${message != null}" th:text="${message}"></div>
+
+            <h6>Caso ainda não seja registrado clique no link abaixo para fazer seu cadastro!</h6>
+            <a th:href="@{/register}" >registrar</a>
+        </div>
+    </body>
+</html>
